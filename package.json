@@ -17,7 +17,8 @@
     "uuid": "^10.0.0",
     "vue": "^2.6.14",
     "vue-flip": "^3.0.2",
-    "vue-router": "^3.6.5"
+    "vue-router": "^3.6.5",
+    "vue-scrollto": "^2.20.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

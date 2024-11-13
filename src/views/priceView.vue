@@ -1,64 +1,24 @@
 <template>
-  <b-container fluid class="py-5">
-    <h2 class="text-center">Pricing View</h2>
-    <b-row class="mt-4">
+  <b-container class="py-5">
+    <h2 class="text-center">Book Online</h2>
+    <b-row class="mt-4 justify-content-center">
       <b-col
         md="4"
         v-for="(item, index) in priceItems"
         :key="index"
         class="mb-4"
       >
-        <b-card :title="item.title" class="text-center">
-          <b-card-text>
-            <h3>${{ item.price }}</h3>
-            <p>{{ item.description }}</p>
-          </b-card-text>
-          <b-button variant="primary" @click="selectPrice(item)"
-            >Book Now</b-button
-          >
+        <b-card class="text-center p-4">
+          <img :src="item.image" alt="Image" class="card-img-top mb-3" />
+          <h5 class="font-weight-bold">{{ item.title }}</h5>
+          <p class="text-muted">1 hr</p>
+          <p>Introductory Meeting</p>
+          <b-button variant="dark" class="mt-2" @click="selectPrice(item)">
+            Let's Talk
+          </b-button>
         </b-card>
       </b-col>
     </b-row>
-
-    <!-- Booking Form -->
-    <b-modal id="booking-modal" title="Book an Appointment" @hide="resetForm">
-      <b-form @submit.prevent="submitBooking">
-        <b-form-group label="Name" label-for="name-input">
-          <b-form-input
-            id="name-input"
-            v-model="booking.name"
-            required
-          ></b-form-input>
-        </b-form-group>
-
-        <b-form-group label="Email" label-for="email-input">
-          <b-form-input
-            id="email-input"
-            v-model="booking.email"
-            type="email"
-            required
-          ></b-form-input>
-        </b-form-group>
-
-        <b-form-group label="Phone Number" label-for="phone-input">
-          <b-form-input
-            id="phone-input"
-            v-model="booking.phone"
-            required
-          ></b-form-input>
-        </b-form-group>
-
-        <b-form-group label="Message" label-for="message-input">
-          <b-form-textarea
-            id="message-input"
-            v-model="booking.message"
-            rows="3"
-          ></b-form-textarea>
-        </b-form-group>
-
-        <b-button type="submit" variant="success">Confirm Booking</b-button>
-      </b-form>
-    </b-modal>
   </b-container>
 </template>
 
@@ -68,56 +28,57 @@ export default {
     return {
       priceItems: [
         {
-          title: "Basic Package",
-          price: 100,
-          description: "A basic photography session.",
+          title: "Wedding Collection",
+          image: require("@/assets/images/letsTalk/weddingColection.webp"),
         },
         {
-          title: "Premium Package",
-          price: 200,
-          description:
-            "A premium photography session with additional features.",
+          title: "Couples Collection",
+          image: require("@/assets/images/letsTalk/couples.webp"),
         },
         {
-          title: "Deluxe Package",
-          price: 300,
-          description:
-            "A deluxe photography session with all features included.",
+          title: "International Wedding",
+          image: require("@/assets/images/letsTalk/international.webp"),
         },
       ],
-      booking: {
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
-      },
     };
   },
   methods: {
     selectPrice(item) {
-      this.selectedPrice = item; // Save the selected price for further processing if needed
-      this.$bvModal.show("booking-modal");
-    },
-    submitBooking() {
-      // Here, you can implement the logic to send booking data, e.g., to your backend API
-
-      console.log("Booking details:", this.booking);
-      this.resetForm();
-      this.$bvModal.hide("booking-modal");
-      // Optionally, show a success message
-    },
-    resetForm() {
-      this.booking = {
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
-      };
+      // Navigates to the booking page with the selected title as a parameter
+      this.$router.push({
+        name: "sessionBooking",
+        params: { title: item.title },
+      });
+      console.log("Selected package:", item);
     },
   },
 };
 </script>
 
 <style scoped>
-/* Add any component-specific styles here */
+.text-center {
+  text-align: center;
+}
+
+.card-img-top {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+h5 {
+  font-family: "Times New Roman", serif;
+  color: #333;
+}
+
+p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+button {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
 </style>
