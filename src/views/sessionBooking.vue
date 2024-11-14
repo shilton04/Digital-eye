@@ -33,7 +33,7 @@
       <ul class="details-list">
         <li><strong>Service:</strong> Couples Collection</li>
         <li><strong>Date & Time:</strong> {{ formattedDateTime }}</li>
-        <li><strong>Location:</strong> San Francisco</li>
+        <li><strong>Location:</strong> Honnavar</li>
         <li><strong>Staff:</strong> Staff Member #1</li>
         <li><strong>Duration:</strong> 1 hr</li>
         <li><strong>Meeting Type:</strong> Introductory Meeting</li>
@@ -97,6 +97,7 @@ export default {
         date: this.selectedDate,
         time: this.selectedTime,
       });
+      this.$router.push({ name: "ClientDetails" });
     },
   },
 };

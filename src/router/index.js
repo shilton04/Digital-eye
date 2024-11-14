@@ -4,6 +4,7 @@ import HomeView from "../views/HomeView.vue";
 import gallery from "@/views/gallery.vue";
 import priceView from "@/views/priceView.vue";
 import sessionBooking from "@/views/sessionBooking.vue";
+import ClientDetails from "@/views/ClientDetails.vue";
 
 Vue.use(VueRouter);
 
@@ -27,6 +28,12 @@ const routes = [
     path: "/booking/:title",
     name: "sessionBooking",
     component: sessionBooking,
+    props: true,
+  },
+  {
+    path: "/clientDetails/:title",
+    name: "ClientDetails",
+    component: ClientDetails,
     props: true,
   },
   // Add other routes here if needed

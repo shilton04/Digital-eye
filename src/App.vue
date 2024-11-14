@@ -58,7 +58,7 @@ export default {
   margin-left: auto !important;
 }
 body {
-  background-color: #ceab65; /* Cream color */
+  background-color: #eae0cc; /* Cream color */
   margin: 0;
   font-family: Arial, sans-serif;
 }
