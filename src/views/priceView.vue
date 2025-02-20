@@ -1,6 +1,6 @@
 <template>
   <b-container class="py-5">
-    <h2 class="text-center">Book Online</h2>
+    <h2 class="text-center">Book an Appointment</h2>
     <b-row class="mt-4 justify-content-center">
       <b-col
         md="4"
@@ -11,7 +11,7 @@
         <b-card class="text-center p-4">
           <img :src="item.image" alt="Image" class="card-img-top mb-3" />
           <h5 class="font-weight-bold">{{ item.title }}</h5>
-          <p class="text-muted">1 hr</p>
+
           <p>Introductory Meeting</p>
           <b-button variant="dark" class="mt-2" @click="selectPrice(item)">
             Let's Talk
@@ -28,15 +28,15 @@ export default {
     return {
       priceItems: [
         {
-          title: "Wedding Collection",
+          title: "Weddings/Personal Photoshot ",
           image: require("@/assets/images/letsTalk/weddingColection.webp"),
         },
         {
-          title: "Couples Collection",
+          title: "Small Events",
           image: require("@/assets/images/letsTalk/couples.webp"),
         },
         {
-          title: "International Wedding",
+          title: "Birthday/Cradle Ceremony",
           image: require("@/assets/images/letsTalk/international.webp"),
         },
       ],

@@ -5,7 +5,9 @@ import gallery from "@/views/gallery.vue";
 import priceView from "@/views/priceView.vue";
 import sessionBooking from "@/views/sessionBooking.vue";
 import ClientDetails from "@/views/ClientDetails.vue";
-
+import LoginPage from "@/views/LoginPage.vue";
+import SigupPage from "@/views/SigupPage.vue";
+import BlogView from "@/views/blogView.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -35,6 +37,22 @@ const routes = [
     name: "ClientDetails",
     component: ClientDetails,
     props: true,
+  },
+  {
+    path: "/blog-view",
+    name: "Blogs",
+    component: BlogView,
+    props: true,
+  },
+  {
+    path: "/Login",
+    name: "Login",
+    component: LoginPage,
+  },
+  {
+    path: "/Signup",
+    name: "Sigup",
+    component: SigupPage,
   },
   // Add other routes here if needed
 ];

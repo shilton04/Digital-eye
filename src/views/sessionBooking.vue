@@ -5,13 +5,11 @@
       Check out our availability and book the date and time that works for you
     </p>
 
-    <div class="calendar-section">
-      <b-calendar
-        v-model="selectedDate"
-        :min="new Date()"
-        @context="onContext"
-      ></b-calendar>
-    </div>
+    <b-form-datepicker
+      v-model="selectedDate"
+      class="mb-2"
+      @input="formatSelectedDate"
+    ></b-form-datepicker>
 
     <div v-if="selectedDate" class="time-selection">
       <h4 class="text-center">Select a Time</h4>
@@ -33,7 +31,7 @@
       <ul class="details-list">
         <li><strong>Service:</strong> Couples Collection</li>
         <li><strong>Date & Time:</strong> {{ formattedDateTime }}</li>
-        <li><strong>Location:</strong> Honnavar</li>
+        <li><strong>Location:</strong> Bangalore</li>
         <li><strong>Staff:</strong> Staff Member #1</li>
         <li><strong>Duration:</strong> 1 hr</li>
         <li><strong>Meeting Type:</strong> Introductory Meeting</li>
@@ -61,43 +59,53 @@ export default {
       selectedDate: null,
       selectedTime: null,
       times: [
-        "10:00 am",
-        "10:30 am",
-        "11:00 am",
-        "11:30 am",
-        "12:00 pm",
-        "12:30 pm",
-        "1:00 pm",
-        "1:30 pm",
+        "8:00 am",
+        "8:30 am",
+        "9:00 am",
+        "9:30 am",
+        "5:00 pm",
+        "5:30 pm",
+        "6:00 pm",
+        "7:30 pm",
       ],
     };
   },
   computed: {
     formattedDateTime() {
       if (this.selectedDate && this.selectedTime) {
-        return `${this.selectedDate.toLocaleDateString()} at ${
-          this.selectedTime
-        }`;
+        return `${this.formatDate(this.selectedDate)} at ${this.selectedTime}`;
       }
-      return "";
-    },
-  },
-  watch: {
-    // Watch for route changes in case user navigates with a new title
-    "$route.params.title"(newTitle) {
-      this.pageTitle = newTitle;
+      return "Not selected";
     },
   },
   methods: {
     selectTime(time) {
       this.selectedTime = time;
     },
+    formatSelectedDate() {
+      if (this.selectedDate) {
+        this.selectedDate = new Date(this.selectedDate);
+      }
+    },
+    formatDate(date) {
+      return new Intl.DateTimeFormat("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      }).format(date);
+    },
     goToClientDetails() {
-      this.$emit("proceed", {
-        date: this.selectedDate,
-        time: this.selectedTime,
+      this.$router.push({
+        name: "ClientDetails",
+        query: {
+          service: "",
+          dateTime: this.formattedDateTime,
+          location: "Bangalore",
+          staff: "Staff Member #1",
+          duration: "1 hr",
+          meetingType: "Introductory Meeting",
+        },
       });
-      this.$router.push({ name: "ClientDetails" });
     },
   },
 };

@@ -1,7 +1,7 @@
 <template>
   <b-container fluid class="p-0 m-0">
     <!-- Navigation Bar -->
-    <b-navbar toggleable="lg" type="dark" variant="dark" class="fixed-top">
+    <!-- <b-navbar toggleable="lg" type="dark" variant="dark" class="fixed-top">
       <b-navbar-brand href="#">
         <b-img :src="require('@/assets/logo1.png')" height="50" alt="Logo" />
       </b-navbar-brand>
@@ -15,7 +15,7 @@
           <b-nav-item href="#contact">Contact</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
-    </b-navbar>
+    </b-navbar> -->
 
     <!-- Hero Section -->
     <section
@@ -39,42 +39,69 @@
           Booking Form
         </b-button>
       </b-container>
+      <div class="animated-images">
+        <!-- <img
+          :src="require('@/assets/cameraman black.avif')"
+          alt="image1"
+          class="rotated-image rotate1"
+        /> -->
+        <!-- <img
+          :src="require('@/assets/camera beat.jpg')"
+          alt="image2"
+          class="rotated-image rotate2"
+        /> -->
+        <!-- <img
+          :src="require('@/assets/images/cameraman black.avif')"
+          alt="image3"
+          class="rotated-image rotate3"
+        /> -->
+        <!-- Add more images as needed -->
+      </div>
     </section>
 
     <!-- About Us Section -->
     <section id="about" class="mt-5 p-2">
-      <b-container>
+      <b-container class="pt-5 mt-5">
         <b-row>
-          <h2 class="text-center">About Digital Eye</h2>
-          <b-col md="6">
+          <h2 class="text-center pa-4">About Digital Eye</h2>
+          <b-col class="d-flex justify-end" md="6">
             <img
-              :src="require('@/assets/cameraman.jpg')"
+              :src="require('@/assets/cameraman.png')"
               class="img-fluid"
               style="height: 350px; width: 250px"
               alt="Photographer"
             />
           </b-col>
-          <b-col md="6" class="mt-5">
-            <p class="mt-3">
-              At Digital Eye, we believe that every photograph is more than just
-              an image—it's a story waiting to be told. Our team of professional
-              photographers is dedicated to capturing the essence of each moment
-              with a blend of creativity, precision, and innovation. Whether
-              it's the fleeting emotions of a wedding, the excitement of a live
-              event, or the intimacy of a personal photoshoot, we strive to go
-              beyond the surface, immortalizing each moment with a futuristic,
-              artistic touch. We are passionate about using advanced techniques
-              and cutting-edge technology to ensure that your memories are not
-              only preserved but elevated into visual works of art that can be
-              cherished for a lifetime. At Digital Eye, your moments are our
-              vision.
-            </p>
+          <b-col md="6" class="mt-5 d-flex align-items-center">
+            <div>
+              <p class="font-weight-bold mb-3">
+                Capturing Moments, Creating Memories
+              </p>
+              <p class="text-muted lead">
+                At <span class="text-dark font-italic">Digital Eye</span>, we
+                believe every photograph is more than just an image—it's a story
+                waiting to be told. Our professional photographers blend
+                <strong>creativity, precision, and innovation</strong> to
+                capture the essence of every moment.
+              </p>
+              <p class="text-muted">
+                Whether it's the fleeting emotions of a wedding, the energy of a
+                live event, or the intimacy of a personal photoshoot, we go
+                beyond the surface. With advanced techniques and cutting-edge
+                technology, we transform your memories into
+                <span class="text-dark font-weight-bold"
+                  >visual works of art</span
+                >
+                that can be cherished for a lifetime.
+              </p>
+            </div>
           </b-col>
         </b-row>
       </b-container>
     </section>
     <!-- Gallery Section -->
-    <section id="gallery" class="py-5 text-center">
+    <div class="mb-5" id="gallery"></div>
+    <section class="py-5 text-center">
       <b-container>
         <h2>Our Work</h2>
         <p>Discover the artistry through our lenses.</p>
@@ -110,7 +137,7 @@
       }"
     >
       <b-container>
-        <h2>Our Services</h2>
+        <h2 class="mb-3">Our Services</h2>
         <b-row>
           <b-col cols="12" md="4" class="mb-3">
             <b-card title="Wedding Photography" class="border-0 shadow-sm">
@@ -134,11 +161,11 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-5 text-center">
-      <b-container>
-        <h5>Connect with us</h5>
-        <b-row>
-          <b-col>
+    <section id="contact" class="py-5 mb-5 text-center">
+      <b-container class="text-center my-5">
+        <h4 class="font-weight-bold text-dark mb-3">Connect with Us</h4>
+        <b-row class="justify-content-center">
+          <b-col cols="auto">
             <a href="https://www.instagram.com/_.digital_eye._" target="_blank">
               <i class="fab fa-instagram fa-2x text-danger mx-2"></i>
             </a>
@@ -198,18 +225,13 @@
           <b-col cols="12" md="6">
             <img
               :src="require('@/assets/images/IMG-20241113-WA0012.jpg')"
-              class="img-fluid"
+              class="img-fluid faded-edges"
               alt="phone-call"
             />
           </b-col>
         </b-row>
       </b-container>
     </section>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white text-center p-3">
-      &copy; 2024 Digital Eye. All Rights Reserved.
-    </footer>
   </b-container>
 </template>
 
@@ -245,7 +267,7 @@ export default {
 <style scoped>
 /* Minimal custom CSS for improved typography and padding adjustments */
 container {
-  background-color: #c9a255; /* Cream color */
+  background-color: #e5d2ab; /* Cream color */
 }
 .title {
   font-family: "Dancing Script", cursive;
@@ -271,12 +293,30 @@ container {
 .transparent-button {
   background-color: transparent !important;
   border: whitesmoke !important;
-  color: #aa6363; /* Adjust to your desired color */
+  color: #df0101; /* Adjust to your desired color */
   box-shadow: none;
 }
 
 .transparent-button:hover {
   color: #333; /* Adjust to your desired hover color */
+}
+.faded-edges {
+  -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 20%,
+      black 80%,
+      transparent
+    ),
+    linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+  mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 20%,
+      black 80%,
+      transparent
+    ),
+    linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
 }
 
 @media (max-width: 768px) {

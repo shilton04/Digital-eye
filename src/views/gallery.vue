@@ -1,6 +1,6 @@
 <template>
-  <div class="container my-5">
-    <h1 class="text-center mb-4 display-4 text-primary">Gallery</h1>
+  <div class="py-5 container">
+    <h1 class="text-center display-4 text--black">Gallery</h1>
     <b-row>
       <b-col
         v-for="(image, index) in images"
@@ -108,10 +108,6 @@ export default {
 }
 
 /* Title Styling */
-h1 {
-  font-weight: 700;
-  color: #0d6efd; /* Primary color */
-}
 
 h5 {
   margin: 0; /* Remove default margin */
