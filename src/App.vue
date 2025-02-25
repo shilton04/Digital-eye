@@ -125,7 +125,7 @@ export default {
   margin-left: auto !important;
 }
 body {
-  background-color: #e5d2ab; /* Cream color */
+  background-color: #fbfbfb;
   margin: 0;
   font-family: "Spectral", serif !important;
 }
